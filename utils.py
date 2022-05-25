@@ -14,8 +14,6 @@ from torch import FloatTensor, LongTensor
 from einops import rearrange, repeat
 from collections import OrderedDict
 
-
-
 # load data
 def dataIterator(feature_file, label_file, dictionary, batch_size, batch_Imagesize, maxlen, maxImagesize):
     # offline-train.pkl
@@ -24,7 +22,7 @@ def dataIterator(feature_file, label_file, dictionary, batch_size, batch_Imagesi
     fp.close()
 
     # train_caption.txt
-    fp2 = open(label_file, 'r')
+    fp2 = open(label_file, 'r',encoding='utf-8')
     labels = fp2.readlines()
     fp2.close()
 
@@ -89,13 +87,9 @@ def dataIterator(feature_file, label_file, dictionary, batch_size, batch_Imagesi
     return list(zip(feature_total, label_total)), uidList
 
 
-
-
-
-
 # load dictionary
 def load_dict(dictFile):
-    fp = open(dictFile)
+    fp = open(dictFile,encoding='utf-8')
     stuff = fp.readlines()
     fp.close()
     lexicon = {}

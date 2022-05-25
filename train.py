@@ -11,6 +11,8 @@ import sys
 import torch.nn.functional as F
 from datetime import datetime
 
+# setting gpu
+os.environ['CUDA_VISIBLE_DEVICES']="0"
 
 # whether init params
 init_param_flag = True
@@ -30,8 +32,8 @@ torch.cuda.manual_seed(1)
 torch.cuda.manual_seed_all(1)
 
 
-result_path = sys.argv[1]
-direction   = sys.argv[2]
+result_path = "result"
+direction   = "L2R-R2L"
 
 assert direction in ['L2R', 'R2L', 'L2R-R2L'], 'Currently, the alg supports L2R and L2RR2L options.'
 
