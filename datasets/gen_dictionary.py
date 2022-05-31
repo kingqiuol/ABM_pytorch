@@ -1,7 +1,5 @@
-
-
-
-label_txt=["./train_caption.txt","./test-caption.txt"]
+# -*- coding: utf-8 -*-
+label_txt=["data/train_caption.txt","data/test-caption.txt"]
 
 data=[]
 for txt in label_txt:
@@ -15,7 +13,7 @@ for line in data:
     
 labels=list(set(labels))
 
-dictionary="dictionary1.txt"
+dictionary="data/dictionary1.txt"
 fp=open(dictionary,"w",encoding="utf-8")
 
 # sos   0
