@@ -27,3 +27,10 @@ else:
 
 # models setting
 INPUT_CHANNELS = 1
+DECODER_TYPE =  'L2R-R2L'  # option: 'L2R', 'R2L', 'L2R-R2L'
+D = 684 # encoder output dim
+DIM_ATTENTION = 512 # decoder input dim
+N = 256
+M = 256
+K = 91
+USE_DROPOUT = True

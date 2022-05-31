@@ -169,7 +169,6 @@ class MathFormulaDataset(object):
         for i in range(len(ratio_list)):
             imsrc = images[i].transpose(1,2,0)
             ratio = ratio_list[i]
-            print("ratio:",ratio)
             if ratio != 1:
                 imsrc = cv2.resize(imsrc, (0, 0),fx=ratio,fy=ratio,interpolation=cv2.INTER_CUBIC)
                 if len(imsrc.shape) < 3:
@@ -192,9 +191,6 @@ class MathFormulaDataset(object):
 
         x_mask = np.zeros((n_samples, max_height_x, max_width_x)).astype(np.float32)
         y_mask = np.zeros((maxlen_y, n_samples)).astype(np.float32)
-        
-        for s_x in images_x:
-            print(s_x.shape)
 
         for idx, [s_x, s_y] in enumerate(zip(images_x, labels)):
             # 随机偏移
@@ -266,7 +262,6 @@ if __name__ == "__main__":
         print(len(X))
         x, x_mask, y_in, y_out, y_mask, y_reverse_in, y_reverse_out, y_reverse_mask=data.prepare_data_bidecoder(X,Y)
         alllength += len(X)
-        print(y_reverse_in,y_reverse_mask)
         # x, x_mask, y, y_mask = aug(X,Y)
         # print(y)
     print("batch final")
